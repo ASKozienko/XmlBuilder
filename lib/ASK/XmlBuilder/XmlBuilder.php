@@ -1,4 +1,5 @@
 <?php
+namespace ASK\XmlBuilder;
 
 class XmlBuilder extends XmlElement
 {
