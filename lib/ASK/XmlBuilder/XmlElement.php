@@ -96,7 +96,7 @@ class XmlElement
      */
     public function attr($name, $value, $namespace = null)
     {
-        $namespace ? $this->current->setAttributeNS($namespace, $name, $value) : $this->current->setAttribute($name, $value);
+        null !== $namespace ? $this->current->setAttributeNS($namespace, $name, $value) : $this->current->setAttribute($name, $value);
 
         return $this;
     }
