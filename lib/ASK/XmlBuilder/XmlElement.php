@@ -14,7 +14,7 @@ class XmlElement
     protected $dom;
 
     /**
-     * @param DOMElement $element
+     * @param \DOMElement $element
      */
     public function __construct(\DOMElement $element)
     {
