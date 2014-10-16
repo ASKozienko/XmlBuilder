@@ -1,10 +1,10 @@
 {
     "name": "ask/xml-builder",
     "type": "library",
-    "description": "Easy XML Builder",
+    "description": "Easy PHP XML Builder",
     "homepage": "https://github.com/ASKozienko/XmlBuilder",
     "license": "MIT",
-    "keywords": ["xml", "xml builder", "xml creator", "easy xml"],
+    "keywords": ["xml", "xml builder", "xml creator", "easy xml", "php"],
     "authors": [
         {
             "name": "Alexander Kozienko",
