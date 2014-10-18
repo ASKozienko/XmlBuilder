@@ -108,7 +108,7 @@ class XmlElement
      */
     public function comment($content)
     {
-        $this->current->appendChild($this->dom->createComment($content));
+        $this->current->appendChild($this->dom->createComment(htmlentities($content, ENT_QUOTES|ENT_XML1)));
 
         return $this;
     }
