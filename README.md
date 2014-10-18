@@ -43,8 +43,8 @@ $xmlBuilder
   ->end()
 ;
 
-$addresses->element('address', 'value1');
-$addresses->element('address', 'value2');
+$addresses->element('address', 'value1')->end();
+$addresses->element('address', 'value2')->end();
 
 echo $xmlBuilder->getXml(true);
 ```
