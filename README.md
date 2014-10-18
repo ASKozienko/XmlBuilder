@@ -38,7 +38,7 @@ $xmlBuilder = new XmlBuilder();
 $xmlBuilder
   ->element('root')
     ->element('user')
-      ->element('addresses')->reference($addresses)
+      ->element('addresses')->reference($addresses)->end()
     ->end()
   ->end()
 ;
