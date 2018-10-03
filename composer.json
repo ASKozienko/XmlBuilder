@@ -21,8 +21,6 @@
         "bin-dir": "bin"
     },
     "autoload": {
-        "psr-0": {
-            "ASK\\XmlBuilder": "lib/"
-        }
+        "psr-4": { "ASK\\XmlBuilder\\": "src/" }
     }
 }

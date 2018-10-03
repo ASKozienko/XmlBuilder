@@ -1,4 +1,5 @@
 <?php
+
 namespace ASK\XmlBuilder\Tests;
 
 use ASK\XmlBuilder\XmlBuilder;
@@ -7,7 +8,7 @@ class XmlBuilderTest extends \PHPUnit_Framework_TestCase
 {
     public function testShouldCreateXmlDeclaration()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
 
         $expected = <<<EOF
 <?xml version="1.0" encoding="utf-8"?>
@@ -19,8 +20,8 @@ EOF;
 
     public function testShouldCreateXmlElement()
     {
-        $xmlBuilder = new XmlBuilder();
-        $xmlBuilder->element('root');
+        $xmlBuilder = XmlBuilder::create();
+        $xmlBuilder->element('root')->end();
 
         $expected = <<<EOF
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +34,7 @@ EOF;
 
     public function testShouldCreateChildXmlElement()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->element('child')->end()
@@ -53,7 +54,7 @@ EOF;
 
     public function testShouldCreateChildXmlElementWithValue()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->element('child', 'value')->end()
@@ -73,7 +74,7 @@ EOF;
 
     public function testShouldCreateXmlElementWithAttributes()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->attr('attr1', 'value1')
@@ -92,7 +93,7 @@ EOF;
 
     public function testShouldCreateXmlElementWithNamespacedAttribute()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->attr('ns:attr', 'value', 'http://ns/ns')
@@ -110,7 +111,7 @@ EOF;
 
     public function testShouldCreateXmlElementWithNamespace()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('ns:root', null, 'http://ns/ns')->end()
         ;
@@ -126,7 +127,7 @@ EOF;
 
     public function testShouldEscapeSpecialChars()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->element('element',  '&<')->end()
@@ -152,7 +153,7 @@ EOF;
 
     public function testShouldNotEscapeSpecialCharsInCdata()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
                 ->element('cdata')->cdata('<&>')->end()
@@ -172,10 +173,10 @@ EOF;
 
     public function testShouldReturnReferenceToElement()
     {
-        $xmlBuilder = new XmlBuilder();
+        $xmlBuilder = XmlBuilder::create();
         $xmlBuilder
             ->element('root')
-                ->element('child1')->reference($child1)
+                ->element('child1')->reference($child1)->end()
             ->end()
         ;
 

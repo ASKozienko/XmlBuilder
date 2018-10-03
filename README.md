@@ -6,7 +6,7 @@ Generate XML
 ```php
 <?php
 
-$xmlBuilder = new XmlBuilder();
+$xmlBuilder = XmlBuilder::create();
 
 $xmlBuilder
   ->element('root')
@@ -33,7 +33,7 @@ Reference
 ```php
 <?php
 
-$xmlBuilder = new XmlBuilder();
+$xmlBuilder = XmlBuilder::create();
 
 $xmlBuilder
   ->element('root')
